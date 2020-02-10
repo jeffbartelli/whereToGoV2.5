@@ -1,0 +1,1 @@
+look into making import export work. I want to get the variables out of script.js
