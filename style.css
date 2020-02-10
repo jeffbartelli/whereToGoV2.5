@@ -31,7 +31,7 @@ section {
   top:0px;
   height: 100px;
   display: block;
-  background-image: url("/images/header.png");
+  background-image: url("images/header.png");
   background-color: white;
   z-index: 1;
 }
