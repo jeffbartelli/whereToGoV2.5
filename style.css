@@ -11,6 +11,7 @@ body {
   font-family: 'PT Sans', sans-serif;
   font-family: 'Roboto', sans-serif;
   color: #0D0D0D;
+  margin-top: 0;
 }
 
 a {
@@ -40,6 +41,10 @@ section {
   font-size: xx-large;
   top: 20px;
   right: 20px;
+}
+
+#intro {
+  padding: 0 3px 0 5px;
 }
 
 .sectionHead {
@@ -75,21 +80,24 @@ section {
 #rank10 { 
   float:left;  
   background-color: #C8E183; 
-  width:33%; 
+  width:32%; 
   height:auto;
+  padding-left: 3px;
 } 
 
 #rank20 { 
   float:left;  
   background-color: rgb(217, 236, 164);
-  width:34%; 
+  width:33%; 
   height:auto; 
+  padding-left: 3px;
 } 
 
 #rank30 { 
   float:right;
   background-color: rgb(236, 248, 203);;
   width:33%; 
+  padding-left: 3px;
   height:auto; 
 } 
 
