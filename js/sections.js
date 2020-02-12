@@ -157,7 +157,7 @@ let sectionPopulator = () => {
         rankArray.push(newArray2);
       };
       rankArray.sort((a,b)=>{
-        return a[0] - b[0];
+        return (a[0]===null)-(b[0]===null) || +(a[0]>b[0])||-(a[0]<b[0]);
       });
       rankArray = rankArray.slice(0,10);
       for(let m=0;m<10; m++){
@@ -217,9 +217,11 @@ window.dropdownChange = function() {
   document.querySelector('[id=' + [dataKeys[i]][0] + '] .rank span').innerHTML = cityRecord[0][dataKeys[i]][1];
   let temp = document.querySelector('[id=' + [dataKeys[i]][0] + '] .score');
   if (cityRecord[0][dataKeys[i]][0] < 1) {
-    temp.innerHTML = ((cityRecord[0][dataKeys[i]][0]*100) / 2 +50).toFixed(2) + "%  ";
+    temp.innerHTML = (cityRecord[0][dataKeys[i]][0]*100).toFixed(1) + "%  ";
   } else { temp.innerHTML = cityRecord[0][dataKeys[i]][0];}
   }
+  let femPercentChange = document.querySelector('#femaleRatio .score');
+  femPercentChange.innerHTML = parseFloat(document.querySelector('#femaleRatio .score').innerHTML)/2+50 + "%";
 }
 
 window.persistValues = function() {

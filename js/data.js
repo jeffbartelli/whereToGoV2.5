@@ -1394,7 +1394,7 @@ let metricDetails = [
     description:"Identifies cities with a high level of racial diversity based on the percent of a population that is white. The lower this percentage the higher a city's score.",
     source:"",
     score:null,
-    scoreLabel:"% White: ",
+    scoreLabel:"Percent White: ",
     weight:100,
     active:1
   },
@@ -1405,7 +1405,7 @@ let metricDetails = [
     description:"What percent of a city's population is female.",
     source:"http://www.bestplaces.net/docs/studies/solocities_gap1.aspx",
     score:null,
-    scoreLabel:"% female: ",
+    scoreLabel:"Percent Female: ",
     weight:100,
     active:1
   }
