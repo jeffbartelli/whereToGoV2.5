@@ -1,9 +1,7 @@
 import {metricDetails, cityList} from './data.js';
-import {data, weightUpdate, weightedCalc, overallScore, overallRank, dataKeys} from './rankings.js';
+import {data, weightUpdate, overallScore, overallRank, dataKeys} from './rankings.js';
+import {numberWithCommas} from './utilities.js'
 
-let numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
 
 // TOP30 LIST
 let cityRankings = () => {
@@ -219,11 +217,10 @@ window.dropdownChange = function() {
   document.querySelector('[id=' + [dataKeys[i]][0] + '] .rank span').innerHTML = cityRecord[0][dataKeys[i]][1];
   let temp = document.querySelector('[id=' + [dataKeys[i]][0] + '] .score');
   if (cityRecord[0][dataKeys[i]][0] < 1) {
-    temp.innerHTML = (cityRecord[0][dataKeys[i]][0] * 100).toFixed(1) + "%";
+    temp.innerHTML = ((cityRecord[0][dataKeys[i]][0]*100) / 2 +50).toFixed(2) + "%  ";
   } else { temp.innerHTML = cityRecord[0][dataKeys[i]][0];}
   }
 }
-
 
 window.persistValues = function() {
   if(localStorage.getItem('dropdownCity')){
@@ -347,23 +344,24 @@ sectionPopulator();
 persistValues();
 topRanks();
 
-
-let sectColl = document.getElementsByClassName('expandMetric');
-
-for (let i=0; i<sectColl.length; i++){
-  sectColl[i].addEventListener("click", function() {
-    this.classList.toggle('active');
-    let content = this.parentNode.nextElementSibling;
-    let test = this.parentNode.nextElementSibling.querySelector('.top10');
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-      test.style.opacity = 0;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-      test.style.opacity = 1;
-    }
-  });
+let metricExpander = () => {
+  let sectColl = document.getElementsByClassName('expandMetric');
+  for (let i=0; i<sectColl.length; i++){
+    sectColl[i].addEventListener("click", function() {
+      this.classList.toggle('active');
+      let content = this.parentNode.nextElementSibling;
+      let test = this.parentNode.nextElementSibling.querySelector('.top10');
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+        test.style.opacity = 0;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        test.style.opacity = 1;
+      }
+    });
+  }
 }
+metricExpander();
 
 
 export {metricDetails} from './data.js';

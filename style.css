@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   background-image: url("images/background2.jpg");
   background-repeat: no-repeat;
@@ -21,7 +25,6 @@ a {
 section {
   background-color: transparent;
   vertical-align: top;
-  padding: 0px;
   margin-bottom: 10px;
   position: relative;
 }
@@ -45,6 +48,7 @@ section {
 
 #intro {
   padding: 0 3px 0 5px;
+  background-color: #F7F7F7;
 }
 
 .sectionHead {
@@ -52,10 +56,6 @@ section {
   padding: 2px 3px 3px 5px;
   font-size: larger;
   font-weight: bold;
-}
-
-#intro {
-  background-color: #F7F7F7;
 }
 
 #footer {
@@ -68,37 +68,29 @@ section {
   top: 100px;
   z-index: 1;
   overflow: unset;
-  /* margin-bottom: 15px; */
-  /* background-color: white; */
 }
 
 #rankings {
-  display: inline-block;
+  display: table;
   width: 100%;
+  table-layout: fixed;
+}
+
+#rank10, #rank20, #rank30 {
+  display: table-cell;
+  padding-left: 3px;
 }
 
 #rank10 { 
-  float:left;  
   background-color: #C8E183; 
-  width:32%; 
-  height:auto;
-  padding-left: 3px;
 } 
 
 #rank20 { 
-  float:left;  
   background-color: rgb(217, 236, 164);
-  width:33%; 
-  height:auto; 
-  padding-left: 3px;
 } 
 
 #rank30 { 
-  float:right;
   background-color: rgb(236, 248, 203);;
-  width:33%; 
-  padding-left: 3px;
-  height:auto; 
 } 
 
 .dropdown {
@@ -233,7 +225,6 @@ input[type=number]{
   color: #738F28;
   text-align: left;
   padding: 0px 0px 2px 0px;
-  /* border-radius: 6px; */
   position: absolute;
   z-index: 2;
   list-style: none;
@@ -303,4 +294,53 @@ input:checked + .slider:before {
   -webkit-transform: translateX(15px);
   -ms-transform: translateX(15px);
   transform: translateX(15px);
+}
+
+
+@media only screen and (max-width: 500px) {
+  html {
+    background-color: white;
+  }
+
+  #header {
+    height: 35px;
+  }
+
+  .headerTitle {
+    top: unset;
+    position: inherit;
+    float: right;
+  }
+
+  #intro {
+    padding: 0 3px 0 3px;
+  }
+  
+  #topCities {
+    top: 35px;
+  }
+
+  #topCities .sectionHead {
+    text-align: center;
+  }
+
+  #rank30 {
+    display: none;
+  }
+
+  .metricHead {
+    font-size: small;
+  }
+
+  #profileTop {
+    height: 100%;
+  }
+
+  #city, #popDensity, #cityPop, #metroPop {
+    position: relative;
+    right: unset;
+    left: unset;
+    top: unset;
+    bottom: unset;
+  }
 }
